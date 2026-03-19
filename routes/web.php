@@ -21,3 +21,7 @@ Route::get('/doanphucgiakhanh', function () {
 Route::get('/phuchibang', function () {
     return "Phu Chi Bang";
 });
+
+Route::get('/nguyentuandung', function () {
+    return "Nguyen Tuan Dung";
+});
