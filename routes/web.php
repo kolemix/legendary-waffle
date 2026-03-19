@@ -17,3 +17,7 @@ Route::get('/phannguyenkhoinguyen', function () {
 Route::get('/doanphucgiakhanh', function () {
     return 'Doan Phuc Gia Khanh';
 });
+
+Route::get('/phuchibang', function () {
+    return "Phu Chi Bang";
+});
