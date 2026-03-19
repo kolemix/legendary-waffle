@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\DB;
 
 
 use App\Http\Controllers\MovieController;
-use Illuminate\Support\Facades\DB;
+
 
 
 Route::get('/', function () {
@@ -16,6 +16,7 @@ Route::get('/', function () {
 Route::get('/top-runtime', function () {
     $movies = DB::table('movie')->where('runtime', '>', 120)->limit(10)->get();
     return view('top_runtime', compact('movies'));
+});
 
 Route::get('/top-vote', function () {
     $movies = DB::table('movie')->orderByDesc('vote_average')->limit(10)->get();
