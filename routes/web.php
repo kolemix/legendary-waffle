@@ -1,14 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get("/qlsach/theloai", "App\Http\Controllers\BookController@laythongtintheloai");
-Route::get("/qlsach/thongtinsach", "App\Http\Controllers\BookController@laythongtinsach");
-Route::get("/qlsach/kinhdien", "App\Http\Controllers\BookController@sachkinhdien");
+Route::get('/top-vote', function () {
+    $movies = DB::table('movie')->orderByDesc('vote_average')->limit(10)->get();
+    return view('top_vote', compact('movies'));
+});
 
 Route::get('/phannguyenkhoinguyen', function () {
     return "Phan Nguyễn Khôi Nguyên";
