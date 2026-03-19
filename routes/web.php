@@ -20,6 +20,7 @@ Route::get('/doanphucgiakhanh', function () {
     return 'Doan Phuc Gia Khanh';
 });
 
+
 Route::get('/phuchibang', function () {
     return "Phu Chi Bang";
 });
@@ -27,3 +28,5 @@ Route::get('/phuchibang', function () {
 Route::get('/nguyentuandung', function () {
     return "Nguyen Tuan Dung";
 });
+
+Route::get('/genres', [App\Http\Controllers\MovieController::class, 'genres']);
