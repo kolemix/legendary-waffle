@@ -2,8 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
-
-
 use App\Http\Controllers\MovieController;
 
 
@@ -43,5 +41,5 @@ Route::get('/nguyentuandung', function () {
 
 
 Route::get('/top-movies', [MovieController::class, 'topMovies']);
-Route::get('/genres', [App\Http\Controllers\MovieController::class, 'genres']);
+Route::get('/genres', [MovieController::class, 'genres']);
 

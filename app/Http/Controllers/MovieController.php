@@ -2,27 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Movie;
 use Illuminate\Http\Request;
+use App\Models\Movie;
+use Illuminate\Support\Facades\DB;
 
 class MovieController extends Controller
 {
     public function topMovies()
-{
-    $movies = Movie::orderBy('budget', 'desc')
-                    ->take(10)
-                    ->get();
+    {
+        $movies = Movie::orderBy('budget', 'desc')
+                        ->take(10)
+                        ->get();
+        return view('top_movies', compact('movies'));
+    }
 
-    return view('top_movies', compact('movies'));
+    public function genres()
+    {
+        $data = DB::table('genre')->get(); // nhớ đúng tên bảng của bạn
 
-
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-class MovieController extends Controller
-{
-    public function genres() {
-    $data = DB::table('genre')->get();
-    return view('genres', compact('data'));
-
-}
+        return view('genres', compact('data'));
+    }
 }
