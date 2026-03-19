@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\MovieController;
 use Illuminate\Support\Facades\DB;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -29,4 +32,7 @@ Route::get('/nguyentuandung', function () {
     return "Nguyen Tuan Dung";
 });
 
+
+Route::get('/top-movies', [MovieController::class, 'topMovies']);
 Route::get('/genres', [App\Http\Controllers\MovieController::class, 'genres']);
+
