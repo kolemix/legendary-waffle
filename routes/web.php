@@ -43,3 +43,6 @@ Route::get('/nguyentuandung', function () {
 Route::get('/top-movies', [MovieController::class, 'topMovies']);
 Route::get('/genres', [MovieController::class, 'genres']);
 
+Route::get('/test', function () {
+    return view('test');
+});
