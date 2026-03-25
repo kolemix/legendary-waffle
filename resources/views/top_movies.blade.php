@@ -7,14 +7,24 @@
 
 <h2>Top 10 phim có doanh thu cao nhất</h2>
 
-@foreach($movies as $movie)
-    <p>
-        <strong>Tên phim:</strong> {{ $movie->movie_name }} <br>
-        <strong>Ngày phát hành:</strong> {{ $movie->release_date }} <br>
-        <strong>Doanh thu:</strong> {{ number_format($movie->budget) }} <br>
-    </p>
-    <hr>
-@endforeach
+<table border="1" cellpadding="10" cellspacing="0">
+    <tr>
+        <th>STT</th>
+        <th>Tên phim</th>
+        <th>Ngày phát hành</th>
+        <th>Doanh thu</th>
+    </tr>
+
+    @foreach($movies as $index => $movie)
+    <tr>
+        <td>{{ $index + 1 }}</td>
+        <td>{{ $movie->movie_name }}</td>
+        <td>{{ \Carbon\Carbon::parse($movie->release_date)->format('d/m/Y') }}</td>
+        <td>{{ number_format($movie->budget) }}</td>
+    </tr>
+    @endforeach
+
+</table>
 
 </body>
 </html>
