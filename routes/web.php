@@ -19,3 +19,8 @@ Route::get('/phannguyenkhoinguyen', function () {
 Route::get('/doanphucgiakhanh', function () {
     return 'Doan Phuc Gia Khanh';
 });
+
+Route::get('/sach/{id}', function ($id) {
+    $sach = DB::table('sach')->where('id', $id)->first();
+    return view('chi_tiet_sach', compact('sach'));
+});
