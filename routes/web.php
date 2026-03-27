@@ -60,4 +60,8 @@ Route::get('/theloai/{id}', function ($id) {
     $theloai = DB::table('dm_the_loai')->get();
     $tentheloai = DB::table('dm_the_loai')->where('id', $id)->first();
     return view('danh_sach_sach', compact('sach', 'theloai', 'tentheloai'));
+
+Route::get('/sach/{id}', function ($id) {
+    $sach = DB::table('sach')->where('id', $id)->first();
+    return view('chi_tiet_sach', compact('sach'));
 });
